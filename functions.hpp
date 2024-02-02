@@ -18,11 +18,11 @@ const int height = 30;
 const int width = 100;
 bool isGameOver;
 int noOfFruits;
-Fruit fruit[5];
-char FRUIT = 5;
+Fruit fruit[20];
+char FRUIT = 64;
 int noOfBombs;
-Bomb bomb[5];
-char BOMB = 2;
+Bomb bomb[20];
+char BOMB = 35;
 
 
 void clear ()
@@ -220,6 +220,8 @@ void getPlayerInfoNew(player* p, int num)
     changeColorToWHITE();
     std::cout << "ENTER PLAYER " << num << " NAME : ";
     getName(p[num]);
+
+    p[num].score=0;
 }
 
 void showSpeedMenu()
@@ -337,6 +339,7 @@ void showScore(player p)
     change_color_rgb(p.color.r, p.color.g, p.color.b);
     std::cout << p.name << " : " << p.score;
 }
+
 
 void setFruitsAtFirst(int activeP)
 {
