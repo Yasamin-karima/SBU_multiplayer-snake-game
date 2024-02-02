@@ -11,7 +11,7 @@ snakes must eat fruits and avoid bombs and walls.
 
 ENJOY PLAYING WITH FRIENDS ^_~
 
-
+Ofcourse there are many issues in my code, so
 I appreciate any feedback :)
 
 
