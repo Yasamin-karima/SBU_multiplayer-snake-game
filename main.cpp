@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <stdlib.h>
 #include <queue>
@@ -13,18 +12,6 @@ using namespace std;
 
 std::queue<int> keysPressed;
 
-
-void ShowFooter()
-{
-    changeColorToDefault();
-    cursor_to_pos(35, 1);
-    for (int i=0; i<width; i++)
-    {
-        std::cout << '_' << endl;
-    }
-    std::cout << "PRESS : ";
-    
-}
 
 void howToPlay ()
 {
@@ -87,7 +74,6 @@ void gameBoardContinue (int &p1, int &p2, int &p3) // index of active player in 
     clear_screen();
     changeColorToWHITE();
     drawWalls();
-    // showHints();
     isGameOver = false;
     
     while(!isGameOver)
@@ -128,8 +114,6 @@ void gameBoardContinue (int &p1, int &p2, int &p3) // index of active player in 
             checkEatFruit(PLAYER[p3]);
         }
         
-        
-        
         delay (dly);
     }
     p1=0; p2=3; p3=0;
@@ -146,7 +130,6 @@ void gameBoardNew ()
     clear_screen();
     changeColorToWHITE();
     drawWalls();
-    // showHints();
     isGameOver = false;
     
     while(!isGameOver)
@@ -158,7 +141,6 @@ void gameBoardNew ()
             drawSnake(PLAYER[i]);
             clearSnake(PLAYER[i]);
             showScore(PLAYER[i]);
-            cursor_to_pos(0,0);
             checkGameOver(PLAYER[i], i);
             getMove(PLAYER[i], i);
             checkEatFruit(PLAYER[i]);
@@ -324,10 +306,7 @@ void continuePlaying ()
     {
         GameState=11;
     }
-    if (checkControlKeyHits())
-    {
-        return;
-    }
+    
 }
 
 void startNewGame ()
@@ -380,7 +359,7 @@ void showHomePage()
                 return;
             }
 }
-void homeInMain () // remember its a main function
+void homeInMain () 
 {
     showHomePage();
     int choiceH; //choice for home page
@@ -422,10 +401,7 @@ void homeInMain () // remember its a main function
             }
 }
 
-// 1:showHomePage  2:startNewGame  3:continuePlaying
-// 4:leaderBoard  5:p1 wins  6:p2 wins
-// 7:p3 wins  8:no one win   9: two players win
-// 10:start gameboard  11: gameboard continue
+
 
 
 int main () {
@@ -448,13 +424,10 @@ int main () {
         case 3:
             continuePlaying(); break;
         case 5:
-            // showPlayerWon(PLAYER[activeP[1]]);
             leaderBoard() ; break;  //p1 wins;
         case 6:
-            // showPlayerWon(PLAYER[activeP[2]]);
             leaderBoard() ; break; //p2 wins;
         case 7:
-            // showPlayerWon(PLAYER[activeP[3]]);
             leaderBoard() ; break; //p3 wins;
         case 4:
             leaderBoard() ; break;
